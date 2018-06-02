@@ -1,27 +1,38 @@
-<h1>Eat-Da-Burger!</h1>
+<h1 class="text-center">Eat-Da-Burger!</h1>
 
-<ul>
-  {{#each burgers}}
-  <li>
-    <span class="label"></span> {{this.id}}
-    <span class="label"></span> {{this.burger_name}}
-  </li>
+<form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+    <ol class="notDevoured">
+      {{#each burgers}} 
+      {{#unless devoured}}
+      <div class="burgerlist">
+        <li>
+          {{this.burger_name}}
+        </li>
+      </div>
+  <button type="submit" class="btn btn-default btn-primary devourButton">DEVOUR IT!</button>
+</form>
+{{/unless}} 
+{{/each}}
+</ol>
 
-  <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
-    <button type="submit">DEVOUR IT!</button>
-  </form>
+<ol class="devouredAlready">
+  {{#each burgers}} 
+  {{#if devoured}}
+  <div class="burgerlist">
+    <li>
+      {{this.burger_name}}
+    </li>
+  </div>
 
-  {{/each}}
-</ul>
+  {{/if}} {{/each}}
+
+</ol>
 
 <form class="create-update-form" action="/burgers" method="POST">
 
   <div class="form-group">
-    <label for="burgername">Burger Name:</label>
-    <input type="text" id="burgername" name="burger_name">
+    <textarea placeholder="Enter a burger you want to eat, and then click the submit button." id="burgername" name="burger_name" rows="8" cols="40"></textarea>
+    <br>
+    <button type="submit" class="btn btn-lg btn-primary submitButton">Submit</button>
   </div>
-
-  <button type="submit">Submit</button>
 </form>
-
-Enter a burger you want to eat, and then click the submit button.

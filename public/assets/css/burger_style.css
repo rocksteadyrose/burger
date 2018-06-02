@@ -1,0 +1,37 @@
+    html, body {
+        background-color: yellow;
+        padding: 30px;
+        background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+
+    }
+
+    .burgerlist {
+        padding: 40px;
+        margin-bottom: 10px;
+    }
+  
+  .create-update-form {
+    padding: 5px;
+    margin: 5px;
+  }
+  
+  .devouredAlready {
+      float: right;
+  }
+
+  .notDevoured {
+      float: left;
+  }
+
+  .notDevoured .burgerlist {
+    background: url("../img/burgerfull.png") center;
+  }
+
+  .create-update-form {
+      clear: both;
+  }
+
+  .form-group {
+      text-align: center;
+      margin-bottom: 5px;
+  }
