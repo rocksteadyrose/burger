@@ -1,0 +1,27 @@
+<h1>Eat-Da-Burger!</h1>
+
+<ul>
+  {{#each burgers}}
+  <li>
+    <span class="label"></span> {{this.id}}
+    <span class="label"></span> {{this.burger_name}}
+  </li>
+
+  <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+    <button type="submit">DEVOUR IT!</button>
+  </form>
+
+  {{/each}}
+</ul>
+
+<form class="create-update-form" action="/burgers" method="POST">
+
+  <div class="form-group">
+    <label for="burgername">Burger Name:</label>
+    <input type="text" id="burgername" name="burger_name">
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+
+Enter a burger you want to eat, and then click the submit button.
