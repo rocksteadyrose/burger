@@ -1,46 +1,39 @@
 <h1 class="text-center burgerTitle">Eat-Da-Burger!</h1>
 
-<div class="burgerFullDiv col-md-4">
+<div class="burgerFullDiv col-md-4 col-lg-offset-2 text-center">
 
-    <ol class="notDevoured">
-      {{#each burgers}} 
-        {{#unless this.devoured}}
-          <div class="burgerlist">
-            <li>
-              {{this.burger_name}}
-              
-        <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
-          <button type="submit" class="btn btn-default btn-primary devourButton">DEVOUR IT!</button>
-        </form>
-
-            </li>
-          </div>
-        {{/unless}} 
-      {{/each}}
-    </ol>
-
+    {{#each burgers}} 
+    {{#unless this.devoured}} 
+      <div class="notDevoured">
+    {{this.id}}. {{this.burger_name}}
+    <div class="wallpaperFull">
+      {{!-- Button sends this.id back to the server --}}
+      <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+        <button type="submit" class="btn btn-default btn-primary devourButton">DEVOUR IT!</button>
+      </form>
+    </div>
+  </div>
+  {{/unless}} {{/each}}
 </div>
 
 <div class="formDiv align-center col-md-4">
-<form class="create-update-form" action="/burgers" method="POST">
-  <div class="form-group">
-    <textarea placeholder="Enter a burger you want to eat, and then click the submit button." id="burgername" name="burger_name" rows="8" cols="40"></textarea>
-    <br>
-    <button type="submit" class="btn btn-lg btn-primary submitButton">Submit</button>
-  </div>
-</form>
+  <form class="create-update-form" action="/burgers" method="POST">
+    <div class="form-group">
+      <textarea placeholder="Enter a burger you want to eat, and then click the submit button." id="burgername" name="burger_name"
+        rows="8" cols="40"></textarea>
+      <br>
+      <button type="submit" class="btn btn-lg btn-primary submitButton">Submit</button>
+    </div>
+  </form>
 </div>
 
-<div class="devouredDiv col-md-4">
-<ol class="devouredAlready">
-  {{#each burgers}} 
-  {{#if this.devoured}}
-  <div class="burgerlist">
-    <li>
-      {{this.burger_name}}
-    </li>
-  </div>
+<div class="devouredDiv col-md-4 col-lg-offset-2 text-center">
 
+  <div class="devouredAlready">
+    {{#each burgers}} {{#if this.devoured}} 
+     <div class="wallpaperDevoured">
+    {{this.id}}. {{this.burger_name}}
+    </div>
+  
   {{/if}} {{/each}}
-</ol>
 </div>

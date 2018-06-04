@@ -1,9 +1,10 @@
-// Import the ORM to create functions that will interact with the database.
+// Import the ORM to create functions that will interact with the database. The burger.js file contains all the methods to modify our ORM for use with the burgers database
 var orm = require("../config/orm.js");
 
 var burger = {
     selectAll: function(cb) {
       orm.selectAll("burgers", function(res) {
+        //This cb is sent into our burgers_controller file
         cb(res);
       });
     },

@@ -30,8 +30,6 @@ function objToSql(ob) {
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = "'" + value + "'";
       }
-      // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-      // e.g. {sleepy: true} => ["sleepy=true"]
       arr.push(key + "=" + value);
     }
   }
@@ -48,6 +46,7 @@ var orm = {
         if (err) {
           throw err;
         }
+        //uses a cb to pass the result into the next file in the file system (burger.js)
         cb(result);
       });
     },

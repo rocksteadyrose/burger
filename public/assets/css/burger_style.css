@@ -5,11 +5,6 @@ body {
     background-size: 200%;
 }
 
-.burgerlist {
-    padding: 10px 10px 10px 10px;
-    margin-bottom: 10px;
-}
-
 @font-face {
     font-family: "burgerfont";
     src: url("fonts/Insanibu.ttf");
@@ -35,7 +30,7 @@ body {
 }
 
 .devourButton {
-    margin: 10px 10px 0 -20px;
+    margin: 165px 10px 0px -20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: red!important;
     border-color: black!important;
@@ -62,14 +57,6 @@ devourButton:visited, .submitButton:visited {
     background-color: yellow!important;
 }
 
-li {
-    padding-top: 50px;
-}
-
-.devouredAlready li {
-    padding-bottom: 40px;
-}
-
 .devouredDiv {
     float: right;
 }
@@ -82,9 +69,21 @@ li {
     float: left;
 }
 
-.notDevoured .burgerlist, .devouredAlready .burgerlist {
+.wallpaperFull {
     background: url("../img/burgerfull.png") no-repeat center;
-    background-size: 50%;
+    background-size: 60%;
+    padding-left: 20px;
+    background-position: 65px 12px;
+}
+
+.wallpaperDevoured {
+    background: url("../img/devoured.png") no-repeat center;
+    background-size: 60%;
+    padding: 10px 0 190px 20px;
+    background-position: 65px 35px;
+}
+
+.notDevoured, .burgerFullDiv, .devouredDiv {
     color: yellow;
     text-shadow:
         -1px -1px 0 #000,
@@ -92,18 +91,10 @@ li {
         -1px 1px 0 #000,
         1px 1px 0 #000;
     font-weight: bold;
-    padding-left: 20px;
-    background-position: 1px;
-}
+} 
 
-.devouredAlready .burgerlist {
-    background: url("../img/devoured.png") no-repeat;
-    background-size: 50%;
-    background-position: 1px 12px;
-}
-
-.create-update-form {
-    clear: both;
+.notDevoured {
+    padding-bottom: 30px;
 }
 
 .form-group {
