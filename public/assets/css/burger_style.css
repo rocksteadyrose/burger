@@ -1,37 +1,116 @@
-    html, body {
-        background-color: yellow;
-        padding: 30px;
-        background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+body {
+    /* background-color: yellow; */
+    padding: 30px;
+    background-image: linear-gradient(to top, #f83600 0%, #f9d423 100%);    
+    background-size: 200%;
+}
 
-    }
+.burgerlist {
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+}
 
-    .burgerlist {
-        padding: 40px;
-        margin-bottom: 10px;
-    }
+@font-face {
+    font-family: "burgerfont";
+    src: url("fonts/Insanibu.ttf");
+    font-weight: bold;
+}
   
-  .create-update-form {
+.burgerTitle {
+    font-family: "burgerfont";
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+    0px -5px 35px rgba(255,255,255,0.3);
+    font-weight: bold;
+    color: red;
+    font-size: 50px;
+}
+
+.create-update-form {
     padding: 5px;
     margin: 5px;
-  }
-  
-  .devouredAlready {
-      float: right;
-  }
+}
 
-  .notDevoured {
-      float: left;
-  }
+#burgername {
+    box-shadow: 0 15px 80px 0 rgba(0, 0, 0, 0.2), 0 25px 60px 0 rgba(0, 0, 0, 0.19);
+}
 
-  .notDevoured .burgerlist {
-    background: url("../img/burgerfull.png") center;
-  }
+.devourButton {
+    margin: 10px 10px 0 -20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: red!important;
+    border-color: black!important;
+}
 
-  .create-update-form {
-      clear: both;
-  }
+.submitButton {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: red!important;
+    border-color: black!important;
+}
 
-  .form-group {
-      text-align: center;
-      margin-bottom: 5px;
-  }
+.devourButton:hover, .submitButton:hover {
+    color: red!important;
+    background-color: yellow!important;
+}
+
+devourButton:active, .submitButton:active {
+    color: purple!important;
+    background-color: rgb(0, 255, 21)!important;
+}
+
+devourButton:visited, .submitButton:visited {
+    color: red!important;
+    background-color: yellow!important;
+}
+
+li {
+    padding-top: 50px;
+}
+
+.devouredAlready li {
+    padding-bottom: 40px;
+}
+
+.devouredDiv {
+    float: right;
+}
+
+.burgerFullDiv {
+    float: left;
+}
+
+.formDiv {
+    float: left;
+}
+
+.notDevoured .burgerlist, .devouredAlready .burgerlist {
+    background: url("../img/burgerfull.png") no-repeat center;
+    background-size: 50%;
+    color: yellow;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    font-weight: bold;
+    padding-left: 20px;
+    background-position: 1px;
+}
+
+.devouredAlready .burgerlist {
+    background: url("../img/devoured.png") no-repeat;
+    background-size: 50%;
+    background-position: 1px 12px;
+}
+
+.create-update-form {
+    clear: both;
+}
+
+.form-group {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.formDiv {
+    padding-top: 30px;
+}

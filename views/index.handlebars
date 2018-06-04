@@ -1,23 +1,40 @@
-<h1 class="text-center">Eat-Da-Burger!</h1>
+<h1 class="text-center burgerTitle">Eat-Da-Burger!</h1>
 
-<form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+<div class="burgerFullDiv col-md-4">
+
     <ol class="notDevoured">
       {{#each burgers}} 
-      {{#unless devoured}}
-      <div class="burgerlist">
-        <li>
-          {{this.burger_name}}
-        </li>
-      </div>
-  <button type="submit" class="btn btn-default btn-primary devourButton">DEVOUR IT!</button>
-</form>
-{{/unless}} 
-{{/each}}
-</ol>
+        {{#unless this.devoured}}
+          <div class="burgerlist">
+            <li>
+              {{this.burger_name}}
+              
+        <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+          <button type="submit" class="btn btn-default btn-primary devourButton">DEVOUR IT!</button>
+        </form>
 
+            </li>
+          </div>
+        {{/unless}} 
+      {{/each}}
+    </ol>
+
+</div>
+
+<div class="formDiv align-center col-md-4">
+<form class="create-update-form" action="/burgers" method="POST">
+  <div class="form-group">
+    <textarea placeholder="Enter a burger you want to eat, and then click the submit button." id="burgername" name="burger_name" rows="8" cols="40"></textarea>
+    <br>
+    <button type="submit" class="btn btn-lg btn-primary submitButton">Submit</button>
+  </div>
+</form>
+</div>
+
+<div class="devouredDiv col-md-4">
 <ol class="devouredAlready">
   {{#each burgers}} 
-  {{#if devoured}}
+  {{#if this.devoured}}
   <div class="burgerlist">
     <li>
       {{this.burger_name}}
@@ -25,14 +42,5 @@
   </div>
 
   {{/if}} {{/each}}
-
 </ol>
-
-<form class="create-update-form" action="/burgers" method="POST">
-
-  <div class="form-group">
-    <textarea placeholder="Enter a burger you want to eat, and then click the submit button." id="burgername" name="burger_name" rows="8" cols="40"></textarea>
-    <br>
-    <button type="submit" class="btn btn-lg btn-primary submitButton">Submit</button>
-  </div>
-</form>
+</div>

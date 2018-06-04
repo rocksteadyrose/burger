@@ -62,8 +62,6 @@ var orm = {
       queryString += ") ";
   
       console.log(queryString);
-      console.log("hey!!!")
-
       connection.query(queryString, vals, function(err, result) {
         if (err) {
           throw err;
@@ -82,6 +80,7 @@ var orm = {
       queryString += condition;
   
       console.log(queryString);
+      console.log("TEST!!!")
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
