@@ -1,39 +1,55 @@
 <h1 class="text-center burgerTitle">Eat-Da-Burger!</h1>
 
-<div class="burgerFullDiv col-md-4 col-lg-offset-2 text-center">
+<div class="container-fluid">
+  <div class="row">
 
-    {{#each burgers}} 
-    {{#unless this.devoured}} 
+    <div class="burgerFullDiv col-xs-12 col-s-2 col-md-4 col-lg-5 col-xl-3 text-center">
+      <ol class="customcounter1">
+      {{#each burgers}} {{#unless this.devoured}}
       <div class="notDevoured">
-    {{this.id}}. {{this.burger_name}}
-    <div class="wallpaperFull">
-      {{!-- Button sends this.id back to the server --}}
-      <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
-        <button type="submit" class="btn btn-default btn-primary devourButton">DEVOUR IT!</button>
+        <li>{{this.burger_name}}</li>
+        <div class="wallpaperFull">
+          {{!-- Button sends this.id back to the server --}}
+          <form action="burgers/updateOne/{{this.id}}?_method=PUT" method="POST">
+            <button type="submit" class="btn btn-default btn-primary devourButton">DEVOUR IT!</button>
+          </form>
+        </div>
+      </div>
+      {{/unless}} {{/each}}
+      </ol>
+    </div>
+
+    <div class="formDiv align-center col-xs-12 col-s-8 col-md-4 col-lg-2 col-xl-2">
+      <form class="create-update-form" action="burgers/insertOne" method="POST">
+        <div class="form-group col-lg-2">
+          <textarea placeholder="Enter a burger you want to eat, and then click the submit button." id="burgername" name="burger_name"
+            rows="8" cols="40"></textarea>
+          <br>
+          <button type="submit" class="btn btn-lg btn-primary submitButton">Submit</button>
+        </div>
       </form>
     </div>
-  </div>
-  {{/unless}} {{/each}}
-</div>
 
-<div class="formDiv align-center col-md-4">
-  <form class="create-update-form" action="/burgers" method="POST">
-    <div class="form-group">
-      <textarea placeholder="Enter a burger you want to eat, and then click the submit button." id="burgername" name="burger_name"
-        rows="8" cols="40"></textarea>
-      <br>
-      <button type="submit" class="btn btn-lg btn-primary submitButton">Submit</button>
+    <div class="devouredDiv col-xs-12 col-s-2 col-md-4 col-lg-5 col-xl-3 text-center align-center">
+
+      <div class="devouredAlready">
+        <ol class="customcounter2">
+        {{#each burgers}} {{#if this.devoured}}
+        <div class="wallpaperDevoured">
+          <li>{{this.burger_name}}</li>
+        </div>
+
+        {{/if}} {{/each}}
+      </div>
+      </ol>
     </div>
-  </form>
-</div>
 
-<div class="devouredDiv col-md-4 col-lg-offset-2 text-center">
+      </div>
 
-  <div class="devouredAlready">
-    {{#each burgers}} {{#if this.devoured}} 
-     <div class="wallpaperDevoured">
-    {{this.id}}. {{this.burger_name}}
+    <div class="footer navbar-fixed-bottom">
+      <div class="container">
+        <form action="burgers/deleteAll/?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-sm deleteButton">Delete All</button>
+        </form>
+      </div>
     </div>
-  
-  {{/if}} {{/each}}
-</div>

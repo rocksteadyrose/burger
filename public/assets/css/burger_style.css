@@ -20,6 +20,32 @@ body {
     font-size: 50px;
 }
 
+li {
+    list-style-position: inside;
+    padding: 0;
+}
+
+.customcounter1 {
+    margin-left: 0;
+    padding-right: 0;
+    list-style-type: none;
+}
+
+.customcounter1 li {
+    counter-increment: step-counter;
+}
+
+.customcounter1 li::before {
+    content: counter(step-counter);
+    color: yellow;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    font-weight: bold;
+}
+
 .create-update-form {
     padding: 5px;
     margin: 5px;
@@ -36,10 +62,18 @@ body {
     border-color: black!important;
 }
 
-.submitButton {
+.submitButton, .deleteButton {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: red!important;
     border-color: black!important;
+    color: white!important;
+}
+
+.deleteButton {
+    position: absolute; 
+    bottom: 10px;  
+    left: 10px;
+    font-size: 10px!important;
 }
 
 .devourButton:hover, .submitButton:hover {
@@ -55,18 +89,6 @@ devourButton:active, .submitButton:active {
 devourButton:visited, .submitButton:visited {
     color: red!important;
     background-color: yellow!important;
-}
-
-.devouredDiv {
-    float: right;
-}
-
-.burgerFullDiv {
-    float: left;
-}
-
-.formDiv {
-    float: left;
 }
 
 .wallpaperFull {
@@ -99,9 +121,94 @@ devourButton:visited, .submitButton:visited {
 
 .form-group {
     text-align: center;
-    margin-bottom: 5px;
 }
 
 .formDiv {
     padding-top: 30px;
+}
+
+@media (min-width:1200px) {
+
+    .form-group {
+        margin: -28px 0 0 -80px;
+    }
+
+    .submitButton {
+        margin-left: 70px;
+    }
+
+    .wallpaperDevoured, .wallpaperFull {
+        background-size: 40%;
+        background-position: 135px 12px;
+    }
+
+    .wallpaperDevoured {
+        background-position: 135px 45px;
+    }
+}
+
+@media (max-width:991px) {
+    .wallpaperDevoured, .wallpaperFull {
+        background-size: 20%;
+        background-position: 350px 12px;
+    }
+
+    .wallpaperDevoured {
+        background-position: 350px 45px;
+    }
+}
+
+@media (max-width:991px) {
+    .wallpaperDevoured, .wallpaperFull {
+        background-size: 20%;
+        background-position: 350px 12px;
+    }
+
+    .wallpaperDevoured {
+        background-position: 350px 45px;
+    }
+}
+
+@media (max-width:781px) {
+    .wallpaperDevoured, .wallpaperFull {
+        background-size: 30%;
+        background-position: 250px 12px;
+    }
+
+    .wallpaperDevoured {
+        background-position: 260px 45px;
+    }
+}
+
+@media (max-width:629px) {
+    .wallpaperDevoured, .wallpaperFull {
+        background-size: 40%;
+        background-position: 150px 5px;
+    }
+
+    .wallpaperDevoured {
+        background-position: 150px 50px;
+    }
+}
+
+@media (max-width:506px) {
+    .wallpaperDevoured, .wallpaperFull {
+        background-size: 40%;
+        background-position: 130px 30px;
+    }
+
+    .wallpaperDevoured {
+        background-position: 130px 90px;
+    }
+}
+
+@media (max-width:400px) {
+    .wallpaperDevoured, .wallpaperFull {
+        background-size: 50%;
+        background-position: 80px 30px;
+    }
+
+    .wallpaperDevoured {
+        background-position: 90px 90px;
+    }
 }

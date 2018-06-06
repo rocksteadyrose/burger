@@ -38,7 +38,7 @@ function objToSql(ob) {
   return arr.toString();
 }
 
-// Object for all our SQL statement functions.
+// Object for all our SQL statement functions. The orm modifies the database we create
 var orm = {
     selectAll: function(tableInput, cb) {
       var queryString = "SELECT * FROM " + tableInput + ";";
@@ -50,6 +50,8 @@ var orm = {
         cb(result);
       });
     },
+    // Vals is an array of values that we want to save to cols
+    // Cols are the columns we want to insert the values into
     insertOne: function(table, cols, vals, cb) {
       var queryString = "INSERT INTO " + table;
   
@@ -69,7 +71,9 @@ var orm = {
         cb(result);
       });
     },
+    // ObtColVals would be the colums and values that you want to update
     // An example of objColVals would be {name: panther, sleepy: true}
+    // The condition is what burger we're updating/devouring
     updateOne: function(table, objColVals, condition, cb) {
       var queryString = "UPDATE " + table;
   
@@ -79,12 +83,22 @@ var orm = {
       queryString += condition;
   
       console.log(queryString);
-      console.log("TEST!!!")
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
         }
   
+        cb(result);
+      });
+    },
+
+    deleteAll: function (tableInput, cb) {
+      var queryString = 'DELETE FROM ' + tableInput;
+      connection.query(queryString, function(err, result) {
+        if (err) {
+          throw err;
+        }
+        //uses a cb to pass the result into the next file in the file system (burger.js)
         cb(result);
       });
     }
