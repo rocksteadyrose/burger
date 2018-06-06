@@ -135,7 +135,9 @@ devourButton:visited, .submitButton:visited {
         margin: -28px 0 0 -80px;
     }
 
-    
+    .submitButton {
+        margin-left: 100px;
+    }
 
     .wallpaperDevoured, .wallpaperFull {
         background-size: 40%;
