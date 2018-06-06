@@ -1,5 +1,4 @@
 body {
-    /* background-color: yellow; */
     padding: 30px;
     background-image: linear-gradient(to top, #f83600 0%, #f9d423 100%);    
     background-size: 200%;
@@ -7,8 +6,8 @@ body {
 
 @font-face {
     font-family: "burgerfont";
-    src: url("fonts/Insanibu.ttf");
-    font-weight: bold;
+    src: url("fonts/Chocolate Bar Demo.otf");
+    font-weight: normal;
 }
   
 .burgerTitle {
@@ -17,26 +16,27 @@ body {
     0px -5px 35px rgba(255,255,255,0.3);
     font-weight: bold;
     color: red;
-    font-size: 50px;
+    font-size: 70px;
 }
 
-li {
-    list-style-position: inside;
+ol {
+    margin: 0 0 1.5em;
     padding: 0;
-}
-
-.customcounter1 {
-    margin-left: 0;
-    padding-right: 0;
+    counter-reset: item;
+  }
+  
+  ol li {
+    margin: 0;
+    padding: 0 0 0 2em;
+    text-indent: -2em;
     list-style-type: none;
-}
-
-.customcounter1 li {
-    counter-increment: step-counter;
-}
-
-.customcounter1 li::before {
-    content: counter(step-counter);
+    counter-increment: item;
+  }
+  
+  ol li:before {
+    display: inline-block;
+    width: 1em;
+    padding-right: 0.5em;
     color: yellow;
     text-shadow:
         -1px -1px 0 #000,
@@ -44,7 +44,9 @@ li {
         -1px 1px 0 #000,
         1px 1px 0 #000;
     font-weight: bold;
-}
+    text-align: right;
+    content: counter(item) ".";
+  }
 
 .create-update-form {
     padding: 5px;
@@ -134,7 +136,7 @@ devourButton:visited, .submitButton:visited {
     }
 
     .submitButton {
-        margin-left: 70px;
+        margin-left: 100px;
     }
 
     .wallpaperDevoured, .wallpaperFull {
@@ -203,6 +205,17 @@ devourButton:visited, .submitButton:visited {
 }
 
 @media (max-width:400px) {
+    .wallpaperDevoured, .wallpaperFull {
+        background-size: 50%;
+        background-position: 80px 30px;
+    }
+
+    .wallpaperDevoured {
+        background-position: 90px 90px;
+    }
+}
+
+@media (max-width : 375px) {
     .wallpaperDevoured, .wallpaperFull {
         background-size: 50%;
         background-position: 80px 30px;
