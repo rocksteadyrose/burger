@@ -1,3 +1,4 @@
+//The orm modifies the database we create
 // Import MySQL connection.
 var connection = require("../config/connection.js");
 
@@ -38,7 +39,7 @@ function objToSql(ob) {
   return arr.toString();
 }
 
-// Object for all our SQL statement functions. The orm modifies the database we create
+// Object for all our SQL statement functions
 var orm = {
     selectAll: function(tableInput, cb) {
       var queryString = "SELECT * FROM " + tableInput + ";";
