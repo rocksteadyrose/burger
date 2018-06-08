@@ -1,4 +1,5 @@
-{{!-- The View component is used for all the UI logic of the application. For example, the Customer view will include all the UI components such as text boxes, dropdowns, etc. that the final user interacts with. --}}
+{{!-- The View component is used for all the UI logic of the application. For example, the Customer view will include all
+the UI components such as text boxes, dropdowns, etc. that the final user interacts with. --}}
 
 <h1 class="text-center burgerTitle">Eat-Da-Burger!</h1>
 
@@ -7,17 +8,17 @@
 
     <div class="burgerFullDiv col-xs-12 col-s-2 col-md-4 col-lg-5 col-xl-3 text-center">
       <ol class="customcounter1">
-      {{#each burgers}} {{#unless this.devoured}}
-      <div class="notDevoured">
-        <li>{{this.burger_name}}</li>
-        <div class="wallpaperFull">
-          {{!-- Button sends this.id back to the server --}}
-          <form action="burgers/updateOne/{{this.id}}?_method=PUT" method="POST">
-            <button type="submit" class="btn btn-default btn-primary devourButton">DEVOUR IT!</button>
-          </form>
+        {{#each burgers}} {{#unless this.devoured}}
+        <div class="notDevoured">
+          <li>{{this.burger_name}}</li>
+          <div class="wallpaperFull">
+            {{!-- Button sends this.id back to the server --}}
+            <form action="burgers/updateOne/{{this.id}}?_method=PUT" method="POST">
+              <button type="submit" class="btn btn-default btn-primary devourButton">DEVOUR IT!</button>
+            </form>
+          </div>
         </div>
-      </div>
-      {{/unless}} {{/each}}
+        {{/unless}} {{/each}}
       </ol>
     </div>
 
@@ -36,22 +37,43 @@
 
       <div class="devouredAlready">
         <ol class="customcounter2">
-        {{#each burgers}} {{#if this.devoured}}
-        <div class="wallpaperDevoured">
-          <li>{{this.burger_name}}</li>
-        </div>
+          {{#each burgers}} {{#if this.devoured}}
+          <div class="wallpaperDevoured">
+            <li>{{this.burger_name}}</li>
+          </div>
 
-        {{/if}} {{/each}}
+          {{/if}} {{/each}}
       </div>
       </ol>
     </div>
 
-      </div>
+  </div>
 
-    <div class="footer navbar-fixed-bottom">
-      <div class="container">
-        <form action="burgers/deleteAll/?_method=DELETE" method="POST">
-          <button type="submit" class="btn btn-sm deleteButton">Delete All</button>
-        </form>
-      </div>
+  <div class="footer navbar-fixed-bottom">
+    <div class="container">
+      <form action="burgers/deleteAll/?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-sm deleteButton">Delete All</button>
+      </form>
     </div>
+  </div>
+
+  <script>
+    var count = 0;
+
+    function timeout() {
+      setTimeout(function () {
+        count++;
+
+        $(".wallpaperDevoured").attr("id", "imgID" + count);
+
+        if (count > 5) {
+          count = 0
+        }
+        timeout();
+
+      }, 1000);
+    }
+
+    timeout();
+
+  </script>
