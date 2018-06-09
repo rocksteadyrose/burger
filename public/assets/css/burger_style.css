@@ -179,8 +179,9 @@ devourButton:visited, .submitButton:visited {
         background-position: 135px 12px;
     }
 
-    .wallpaperDevoured {
+    .wallpaperDevoured, #imgID1, #imgID2, #imgID3, #imgID4, #imgID5, #imgID6 {
         background-position: 135px 45px;
+        background-size: 40%;
     }
 }
 
@@ -190,8 +191,9 @@ devourButton:visited, .submitButton:visited {
         background-position: 350px 12px;
     }
 
-    .wallpaperDevoured {
+    .wallpaperDevoured, #imgID1, #imgID2, #imgID3, #imgID4, #imgID5, #imgID6 {
         background-position: 350px 45px;
+        background-size: 20%;
     }
 }
 
@@ -201,8 +203,9 @@ devourButton:visited, .submitButton:visited {
         background-position: 350px 12px;
     }
 
-    .wallpaperDevoured {
+    .wallpaperDevoured, #imgID1, #imgID2, #imgID3, #imgID4, #imgID5, #imgID6 {
         background-position: 350px 45px;
+        background-size: 20%;
     }
 }
 
@@ -212,8 +215,9 @@ devourButton:visited, .submitButton:visited {
         background-position: 250px 12px;
     }
 
-    .wallpaperDevoured {
+    .wallpaperDevoured, #imgID1, #imgID2, #imgID3, #imgID4, #imgID5, #imgID6 {
         background-position: 260px 45px;
+        background-size: 30%;
     }
 }
 
@@ -223,8 +227,9 @@ devourButton:visited, .submitButton:visited {
         background-position: 150px 5px;
     }
 
-    .wallpaperDevoured {
+    .wallpaperDevoured, #imgID1, #imgID2, #imgID3, #imgID4, #imgID5, #imgID6 {
         background-position: 150px 50px;
+        background-size: 40%;
     }
 }
 
@@ -234,8 +239,9 @@ devourButton:visited, .submitButton:visited {
         background-position: 130px 30px;
     }
 
-    .wallpaperDevoured {
+    .wallpaperDevoured, #imgID1, #imgID2, #imgID3, #imgID4, #imgID5, #imgID6 {
         background-position: 130px 90px;
+        background-size: 40%;
     }
 }
 
@@ -245,8 +251,9 @@ devourButton:visited, .submitButton:visited {
         background-position: 80px 30px;
     }
 
-    .wallpaperDevoured {
+    .wallpaperDevoured, #imgID1, #imgID2, #imgID3, #imgID4, #imgID5, #imgID6 {
         background-position: 90px 90px;
+        background-size: 50%;
     }
 }
 
@@ -256,7 +263,8 @@ devourButton:visited, .submitButton:visited {
         background-position: 80px 30px;
     }
 
-    .wallpaperDevoured {
+    .wallpaperDevoured, #imgID1, #imgID2, #imgID3, #imgID4, #imgID5, #imgID6 {
         background-position: 90px 90px;
+        background-size: 50%;
     }
 }
